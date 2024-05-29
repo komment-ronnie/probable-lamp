@@ -1,10 +1,10 @@
 /**
- * @description Calculates the factorial of a given integer `n`, returning `1` for
- * `n = 0` or `1` and `n-1` times `n` otherwise.
+ * @description Calculates the factorial of a given integer `n`. It returns the value
+ * of `n` multiplied by the factorial of `n-1`, if `n` is not equal to 0 or 1.
  * 
- * @param { integer } n - integer value for which the factorial is calculated.
+ * @param { integer } n - value of the factorial calculation.
  * 
- * @returns { integer } the value of the factorial of the input integer `n`.
+ * @returns { integer } the value of the given integer `n`.
  */
 function factorial(n) {
     if (n === 0 || n === 1) {
@@ -13,14 +13,15 @@ function factorial(n) {
         return n * factorial(n - 1);
     }
 }
-
 /**
- * @description Determines whether a given number is prime by checking for divisors
- * using trial division and returning `true` if no divisor is found, and `false` otherwise.
+ * @description Determines whether a given number is prime by checking if it is
+ * divisible by any integer between 2 and the square root of the number, inclusive.
+ * If no division occurs, the number is deemed prime.
  * 
- * @param { integer } num - 2-digit positive integer to be checked for primality.
+ * @param { integer } num - number being tested for primality.
  * 
- * @returns { boolean } a boolean value indicating whether the input number is prime.
+ * @returns { boolean } a boolean value indicating whether the input number is prime
+ * or not.
  */
 function isPrime(num) {
     if (num <= 1) return false;
@@ -31,24 +32,26 @@ function isPrime(num) {
 }
 
 /**
- * @description Multiplies the input `celsius` by a fraction (9/5), and then adds 32
- * to the result, returning the resulting temperature in Fahrenheit.
+ * @description Multiplies a given value of Celsius by 9/5 and then adds 32 to produce
+ * the equivalent Fahrenheit value.
  * 
- * @param { integer } celsius - Celsius temperature value to be converted to Fahrenheit.
+ * @param { number } celsius - temperature in Celsius that is to be converted to Fahrenheit.
  * 
- * @returns { integer } the temperature in Fahrenheit, calculated as (celsius × 9 /
- * 5) + 32.
+ * @returns { integer } the temperature in Fahrenheit based on the input Celsius value.
  */
 function celsiusToFahrenheit(celsius) {
     return (celsius * 9 / 5) + 32;
 }
 
 /**
- * @description Iterates through an array and returns the largest element found.
+ * @description Iterates through an array, compares each element to the current maximum
+ * value, and replaces the maximum value with the next element if it is greater. The
+ * final maximum value is returned.
  * 
- * @param { array } arr - 1D array whose maximum value is to be found by the function.
+ * @param { array } arr - 1D array of numbers that the function processes to find its
+ * maximum value.
  * 
- * @returns { number } the maximum value in the input array.
+ * @returns { number } the maximum value present in the array.
  */
 function findMax(arr) {
     let max = arr[0];
@@ -61,70 +64,68 @@ function findMax(arr) {
 }
 
 /**
- * @description Takes a string as input, splits it into individual characters, reverses
- * the order of those characters, and then reconstructs the original string by joining
- * the characters back together.
+ * @description Takes a string as input and returns its reversed version by splitting,
+ * reversing, and joining back to a string.
  * 
  * @param { string } str - string to be reversed.
  * 
- * @returns { string } a reversed string of the input given.
+ * @returns { string } the original string reversed.
  */
 function reverseString(str) {
     return str.split('').reverse().join('');
 }
 
 /**
- * @description Returns whether a given string is a palindrome by checking if it
- * matches its reverse version.
+ * @description Verifies if a given string is a palindrome by checking if it is equal
+ * to its reverse.
  * 
- * @param { string } str - string to be tested for palindromism.
+ * @param { string } str - string that is to be tested for palindromicity.
  * 
- * @returns { boolean } a boolean value indicating whether the given string is a
- * palindrome or not.
+ * @returns { boolean } a boolean value indicating whether the given string is a palindrome.
  */
 function isPalindrome(str) {
     return str === reverseString(str);
 }
 
 /**
- * @description Generates a random number within a specified range, calculated by
- * multiplying the range by a random value between 0 and 1, then adding the minimum
- * value to obtain the result.
+ * @description Generates a random number between the given minimum and maximum values
+ * using the `Math.random()` method and the `floor()` function to return an integer
+ * value within the range.
  * 
- * @param { integer } min - minimum value that the generated random number can take,
- * and it is used to limit the range of possible values returned by the function.
+ * @param { number } min - minimum possible value that the generated random number
+ * can take, which is included in the range of values between `min` and `max`.
  * 
- * @param { integer } max - maximum value that the generated random number can take,
- * and it is used to limit the range of possible values returned by the function.
+ * @param { number } max - maximum value that the generated random number can take,
+ * and it determines the range of possible values that the function can generate.
  * 
- * @returns { integer } a random integer between `min` and `max`, inclusive of `min`.
+ * @returns { number } a random number between `min` and `max`.
  */
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
- * @description Calculates the area of a circle given its radius, returning the result
+ * @description Calculates the area of a circle using its radius, returning the result
  * in square units.
  * 
- * @param { number } radius - distance from the center of the circle to its edge,
- * which is used to calculate the area of the circle.
+ * @param { number } radius - 2-dimensional distance from the center of the circle
+ * to any point on its circumference, which is used to calculate the area of the
+ * circle using the formula `A = πr^2`, where `r` is the radius.
  * 
- * @returns { number } the area of a circle with radius `radius`, which is equal to
- * `Math.PI * radius ** 2`.
+ * @returns { number } the area of a circle, which is equal to $\pi$ times the square
+ * of the radius.
  */
 function calculateCircleArea(radius) {
     return Math.PI * radius ** 2;
 }
 
 /**
- * @description Reduces an array using the provided callback, returning an object
- * where each key is a value and the count of occurrences of that value in the array.
+ * @description Takes an array as input and returns a count of the number of occurrences
+ * of each value in the array, using reduce() method to accumulate the counts.
  * 
- * @param { array } arr - array whose occurrences are to be counted and reduced,
- * serving as the basis for generating the resulting count object.
+ * @param { array } arr - array whose element occurrences are to be counted.
  * 
- * @returns { object } a count of the occurrences of each value in the input array.
+ * @returns { object } an object containing counts of each element in the input array.
  */
 function countOccurrences(arr) {
     return arr.reduce((acc, val) => {
@@ -134,11 +135,13 @@ function countOccurrences(arr) {
 }
 
 /**
- * @description Transforms a sentence into a capitalized version by splitting it into
- * individual words, capitalizing the first letter of each word, and rearranging them
- * with spaces in between.
+ * @description Takes a sentence as input, splits it into individual words, and then
+ * capitalizes the first letter of each word before joining them back into a single
+ * sentence.
  * 
- * @param { string } sentence - text to be capitalized
+ * @param { string } sentence - string to be processed, which is split into individual
+ * words, and each word's first character is capitalized and combined with the rest
+ * of the word using concatenation.
  * 
  * @returns { string } a capitalized version of the input sentence.
  */
